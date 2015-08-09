@@ -1,0 +1,23 @@
+{
+  "name": "personal-site",
+  "description": "My personal site",
+  "author": "Dean McDonnell <mcdonnelldean@outlook.com> (http://mcdonnelldean.me/)",
+  "license": "MIT",
+  "private": "true",
+  "main": "serve.js",
+  "scripts": {
+    "dev": "supervisor serve.js",
+    "deploy": "surge --project ./dist --domain mcdonnelldean.me"
+  },
+  "devDependencies": {
+    "jsx-loader": "^0.13.2",
+    "supervisor": "^0.6.0",
+    "webpack": "^1.5.3"
+  },
+  "dependencies": {
+    "nanite": "^0.1.0",
+    "react": "^0.12.2",
+    "react-timers": "^4.0.5",
+    "send": "^0.13.0"
+  }
+}
