@@ -1,5 +1,5 @@
 # My Personal Site
-The code in this repo is for my personal site located at [http://mcdonnelldean.me](). The site is built using
+The code in this repo is for my personal site located at [mcdonnelldean.me](http://mcdonnelldean.me). The site is built using
 [React](http://facebook.github.io/react/) and hosted on [Surge](https://surge.sh/).
 
 ## Running
