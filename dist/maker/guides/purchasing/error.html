@@ -24,8 +24,8 @@
           <label for="nav-menu-handle"></label>
     
           <ul class="list-unstyled list-inline nav-items">
-            <li><a href='/hardware/'>Hardware</a></li>
-            <li><a href='/software/'>Software</a></li>
+            <li><a href='/maker/'>Maker</a></li>
+            <li><a href='/coder/'>Coder</a></li>
             <li><a href='/about/'>About</a></li>
           </ul>
         </div>
@@ -45,8 +45,33 @@
       
       <div class="row center-xs">
         <div class="col-xs-12 col-md-8 col-lg-8 txt-left">
-          <h1 id="buying-from-china-via-aliexpress"><a href="#buying-from-china-via-aliexpress" class="linkable" style="margin-left:-2rem; margin-right:1rem; display:inline-block;font-size:0.8rem;color:rgba(255, 37, 150, 0.20);text-decoration:none;vertical-align:middle">&#xA7;</a>Buying from China via AliExpress</h1>
-<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+          <!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{&gt; head}}
+  </head>
+  <body class="error">
+    {{&gt; menu}}
+    {{&gt; banner-small}}
+
+    <main class="container-fluid" role="main">
+      <div class="row center-xs">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+          <h1 id="404"><a href="#404" class="linkable" style="margin-left:-2rem; margin-right:1rem; display:inline-block;font-size:0.8rem;color:rgba(255, 37, 150, 0.20);text-decoration:none;vertical-align:middle">&#xA7;</a>404</h1>
+          <h3 id="well-this-is-embarrassing"><a href="#well-this-is-embarrassing" class="linkable" style="margin-left:-2rem; margin-right:1rem; display:inline-block;font-size:0.8rem;color:rgba(255, 37, 150, 0.20);text-decoration:none;vertical-align:middle">&#xA7;</a>Well this is embarrassing...</h3>
+          <p>That page could not be found. If you think it should be, please let me know!</p>
+        </div>
+      </div>
+      <div class="row center-xs">
+        <div class="col-xs-12 col-md-10 col-lg-10">
+          {{{contents}}}
+        </div>
+      </div>
+    </main>
+
+    {{&gt; footer}}
+  </body>
+</html>
 
         </div>
       </div>
