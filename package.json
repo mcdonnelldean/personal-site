@@ -1,23 +1,29 @@
 {
   "name": "personal-site",
-  "description": "My personal site",
-  "author": "Dean McDonnell <mcdonnelldean@outlook.com> (http://mcdonnelldean.me/)",
-  "license": "MIT",
-  "private": "true",
-  "main": "serve.js",
+  "description": "My personal website",
+  "main": "build.js",
+  "private": true,
   "scripts": {
-    "dev": "supervisor serve.js",
-    "deploy": "surge --project ./dist --domain mcdonnelldean.me"
-  },
-  "devDependencies": {
-    "jsx-loader": "^0.13.2",
-    "supervisor": "^0.6.0",
-    "webpack": "^1.5.3"
+    "build": "metalsmith",
+    "start": "metalsmith; metalsmith-start -p 4000",
+    "deploy": "surge --project ./dist/ --domain https://mcdonnelldean.me"
   },
   "dependencies": {
-    "nanite": "^0.1.0",
-    "react": "^0.12.2",
-    "react-timers": "^4.0.5",
-    "send": "^0.13.0"
+    "handlebars": "^4.0.5",
+    "metalsmith": "^2.1.0",
+    "metalsmith-annotate": "^0.1.1",
+    "metalsmith-assets": "^0.1.0",
+    "metalsmith-broken-link-checker": "^0.1.8",
+    "metalsmith-download": "0.0.1",
+    "metalsmith-drafts": "0.0.1",
+    "metalsmith-headings-identifier": "0.0.11",
+    "metalsmith-ignore": "^0.1.2",
+    "metalsmith-layouts": "^1.0.0",
+    "metalsmith-less": "^2.0.0",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-move-up": "1.0.0",
+    "metalsmith-start": "^2.0.1",
+    "metalsmith-sass": "^1.3.0",
+    "surge": "^0.18.0"
   }
 }

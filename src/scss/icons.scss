@@ -1,0 +1,69 @@
+
+//-- icons.scss
+
+@import "./variables";
+
+.icon {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.icon-github,
+.icon-twitter,
+.icon-linkedin {
+  height: 33px;
+  background-position: 0 0;
+
+  &:hover {
+    background-position: 0 -34px;
+  }
+}
+
+.icon-software,
+.icon-hardware,
+.icon-art,
+.icon-about,
+.icon-photo {
+  height: 40px;
+  width: 40px;
+}
+
+.icon-software {
+  background-image: url("/images/icon-software.png");
+}
+
+.icon-hardware {
+  background-image: url("/images/icon-hardware.png");
+}
+
+.icon-art {
+  background-image: url("/images/icon-art.png");
+}
+
+.icon-photo {
+  background-image: url("/images/icon-photo.png");
+}
+
+.icon-about {
+  background-image: url("/images/icon-about.png");
+}
+
+.icon-github {
+  background-image: url("/images/icon-github.png");
+}
+
+.icon-linkedin {
+  background-image: url("/images/icon-linkedin.png");
+}
+
+.icon-twitter {
+  background-image: url("/images/icon-twitter.png");
+}
+
+.link-has-icon {
+  display: inline-block;
+  padding-left: $ui-spacing-double;
+  font-size: $font-large;
+  line-height: 1.5;
+}

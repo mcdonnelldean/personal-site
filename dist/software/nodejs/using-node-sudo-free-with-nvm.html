@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="shortcut icon" href="/images/favicon.png?v=1" type="image/png" />
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:400,700|Open+Sans:400,400italic,700">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    
+    <title>Dean McDonnell's personal site</title>  </head>
+  <body>
+    <nav class="nav-main" role="navigation">
+      <div class="container-fluid cf">
+        <h2 class="site-name">
+          <a class="" href="/" title="Seneca">Dean McDonnell</a>
+        </h2>
+        
+        <div class="nav-bar">
+          <input type="checkbox" name="nav-menu-handle" id="nav-menu-handle" class="nav-menu-handle">
+          <label for="nav-menu-handle"></label>
+    
+          <ul class="list-unstyled list-inline nav-items">
+            <li><a href='/hardware/'>Hardware</a></li>
+            <li><a href='/software/'>Software</a></li>
+            <li><a href='/about/'>About</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <header role="banner">
+      <div class="container-fluid center-xs">
+      </div>
+    </header>
+
+    <div class="container-fluid">
+      <div class="row center-xs">
+        <div class="col-xs-12 col-md-8 col-lg-8 txt-left">
+          
+        </div>
+      </div>
+      
+      <div class="row center-xs">
+        <div class="col-xs-12 col-md-8 col-lg-8 txt-left">
+          <h1 id="using-node-js-sudo-free-with-nvm"><a href="#using-node-js-sudo-free-with-nvm" class="linkable" style="margin-left:-2rem; margin-right:1rem; display:inline-block;font-size:0.8rem;color:rgba(255, 37, 150, 0.20);text-decoration:none;vertical-align:middle">&#xA7;</a>Using Node.js, sudo free, with NVM</h1>
+<p>There are many ways to install Node.js, from package managers to installers; you can even download and build from source! Unfortunately, the vast majority of installations can put Node.js in a location that requires the need for elevated permissions when using either the <code>node</code> or <code>npm</code> commands. Today we will look at how to clean up and reinstall Node.js so that there is no need to use elevated permissions; as a bonus we will also gain the ability to jump between Node.js versions and even IO.js with ease.</p>
+<p>You can tell if you need elevated permissions to run Node.js based on whether or not you need to append commands with <code>sudo</code>, which stands for Super-User DO. Any command run by prefixing it with sudo will be run with elevated permissions.</p>
+<p>Requiring the need for sudo on Unix-like operating systems when using Node.js at the command line is not only laborious, but also likely to lead to all sorts of strange issues for certain globally installed Node.js modules.</p>
+<p>There are 2 ways to enable the use of Node.js sudo free:</p>
+<ul>
+<li>Download and build Node.js from source to a directory you have permissions for.</li>
+<li>Use a Node.js version manager that works within your home directory.</li>
+</ul>
+<p>For this post we will look at using a Node.js version manager, <a href="https://github.com/creationix/nvm">NVM</a>, to enable sudo free usage of any <code>node</code> or <code>npm</code> based commands. Building from source sure is a fun way to spend an afternoon and we highly encourage it! but for everyday use, a good Node.js version manager is the way to go.</p>
+<p><strong>NOTE:</strong> <em>If you are a Windows user you will be pleased to know that the problem described in this article does not apply to you. Go grab a coffee, you earned it.</em></p>
+<p><strong>IMPORTANT:</strong> <em>sudo free is not technically true. Some global modules may require sudo if they are installing or working with directories that are only available with root permission. Still, nearly always is better than never!</em></p>
+<h2 id="before-we-begin"><a href="#before-we-begin" class="linkable" style="margin-left:-2rem; margin-right:1rem; display:inline-block;font-size:0.8rem;color:rgba(255, 37, 150, 0.20);text-decoration:none;vertical-align:middle">&#xA7;</a>Before we begin</h2>
+<p>If you do not require the use of sudo due to changing file permissions, you should reset your permissions and follow this guide. Messing with permissions is a sure-fire way to lead to all sorts of awful problems later on. On OSX, permissions can be reset by following this <a href="https://support.apple.com/en-ie/HT201560">guide</a>. On Linux there is no easy way to reset permissions. In general, a reinstall is the best route to
+go here.</p>
+<h2 id="preparation"><a href="#preparation" class="linkable" style="margin-left:-2rem; margin-right:1rem; display:inline-block;font-size:0.8rem;color:rgba(255, 37, 150, 0.20);text-decoration:none;vertical-align:middle">&#xA7;</a>Preparation</h2>
+<p>If you have any global Node.js modules installed via <a title="NPM" href="https://www.npmjs.com/" target="_blank">NPM</a>, now would be a good time to delete them. We will most likely be changing the destination of the global modules folder and will have to reinstall them anyway.</p>
+<p>We first need to check if Node.js is already installed on your system. This can be done by running each of the commands below individually at the command line:</p>
+<pre><code class="lang-shell">which node
+which npm
+</code></pre>
+<p>If there is no output, great! If there is, don&#x2019;t panic! Next we are going to look at how to completely remove each one in turn. Be sure to make a note of the output of each command, we will be using these shortly.</p>
+<h2 id="remove-existing-node-js-installs"><a href="#remove-existing-node-js-installs" class="linkable" style="margin-left:-2rem; margin-right:1rem; display:inline-block;font-size:0.8rem;color:rgba(255, 37, 150, 0.20);text-decoration:none;vertical-align:middle">&#xA7;</a>Remove existing Node.js installs</h2>
+<p>There are a multitude of ways to remove Node.js from your system, the exact details will depend upon how it was installed. If you have used Node.js version manager or a package manager, consult their respective documentation for details on how to remove Node.js.</p>
+<p>If Node.js has been installed manually from the site, or from source, you will need to remove it manually. Luckily we have the instruction on how to do that just below.</p>
+<p><strong>IMPORTANT:</strong> <em>The steps below for removing Node.js involve the use of the <code>rm -rf</code> command which can be read as ReMove -Recursively -Force. There is no undo for this command and you will not be warned before deletion. <strong>Be extremely careful</strong> of the directory name you enter. Check each directory name you enter, <strong>twice</strong>, before hitting return.</em></p>
+<p>First up, we need to remove Node.js by using <code>rm -rf</code> on each of the directories listed in the which command.</p>
+<pre><code class="lang-shell">sudo rm -rf /directory/of/node/npm
+</code></pre>
+<p>As well as the above, there are some other odds and ends that hang around. Each command will need to be ran in turn.</p>
+<pre><code class="lang-shell">sudo rm -f /usr/local/share/man/man1/node.1
+sudo rm -f /usr/local/lib/dtrace/node.d
+sudo rm -rf ~/.npm
+sudo rm -rf ~/.node-gyp
+</code></pre>
+<p>Before going any further, run each &#x2018;which&#x2019; command again. If any directories still appear, go ahead and <code>rm -rf</code> each of those directories too.</p>
+<h2 id="install-node-js-via-nvm"><a href="#install-node-js-via-nvm" class="linkable" style="margin-left:-2rem; margin-right:1rem; display:inline-block;font-size:0.8rem;color:rgba(255, 37, 150, 0.20);text-decoration:none;vertical-align:middle">&#xA7;</a>Install Node.js via NVM</h2>
+<p>Introduced above, NVM is a Node.js/NVM version manager that targets works with most Unix-like OSes. To install NVM used to be a bit of a manual effort, thankfully there is now a script that does the hard work for you.</p>
+<pre><code>curl https://raw.githubusercontent.com/creationix/nvm/v0.25.0/install.sh | bash
+</code></pre><p>Note that this script works for both Bash and ZSH, and will pick the correct profile automagically! NVM allows you to install many versions of Node.js. To install the latest stable version of Node.js simply run:</p>
+<pre><code class="lang-shell">nvm install stable
+</code></pre>
+<p>Next set stable as the default version of Node.js for any new console window created:</p>
+<pre><code class="lang-shell">nvm alias default stable
+</code></pre>
+<p>You can test this by creating a new console window and typing <code>node --version</code>. The version should match the stable version of Node.js.</p>
+<h2 id="nvm-quick-look"><a href="#nvm-quick-look" class="linkable" style="margin-left:-2rem; margin-right:1rem; display:inline-block;font-size:0.8rem;color:rgba(255, 37, 150, 0.20);text-decoration:none;vertical-align:middle">&#xA7;</a>NVM quick look</h2>
+<p>We now have sudo free use of the <code>node</code> and <code>npm</code> commands for the stable version of Node.js and NPM; but what if we want to work with other versions, or even IO.js?</p>
+<p>To list all versions available for install, including IO.js:</p>
+<pre><code class="lang-shell">nvm ls-remote
+</code></pre>
+<p>To install a particular version:</p>
+<pre><code class="lang-shell">nvm install 0.12
+</code></pre>
+<p>To list installed versions:</p>
+<pre><code class="lang-shell">nvm ls
+</code></pre>
+<p>To use an installed version for the current console session:</p>
+<pre><code class="lang-shell">nvm use 0.12
+</code></pre>
+<p>To set an installed version as the default for all sessions:</p>
+<pre><code class="lang-shell">nvm alias default 0.12
+</code></pre>
+<p><strong>IMPORTANT:</strong> <em>When switching versions of Node.js it is important to run the <code>npm build</code> command directly after. This rebuilds any native addons for the target version of Node.js amongst other things.</em></p>
+<h2 id="conclusion"><a href="#conclusion" class="linkable" style="margin-left:-2rem; margin-right:1rem; display:inline-block;font-size:0.8rem;color:rgba(255, 37, 150, 0.20);text-decoration:none;vertical-align:middle">&#xA7;</a>Conclusion</h2>
+<p>By removing old Node.js installations and installing NVM we are now able to use both <code>node</code> and <code>npm</code> commands without the need for elevated permissions in the vast majority of cases. We also have the added benefit of using NVM to manage different versions of Node.js and even IO.js using our quick look section above. NVM installs all versions of Node.js and IO.js the same way so regardless of the particular version you are using it will always work, sudo free!</p>
+
+        </div>
+      </div>
+
+      <div class="row center-xs">
+        <div class="col-xs-12 col-md-8 col-lg-8">
+          <p class="txt-lead mb mt2x">Issues? report them <a href="https://github.com/mcdonnelldean/personal-site/issues">here.</a></p>
+        </div>
+      </div>
+    </div>
+
+    <footer role="contentinfo">
+        
+      <div class="footer-top">
+        <div class="container-fluid">
+          <div class="row center-xs">
+            <div class="col-xs-12 col-sm-4 col-md-4">
+              <p class="mt"><a href="https://www.linkedin.com/in/mcdonnelldean/" class="link-has-icon icon icon-linkedin">LinkedIn</a></p>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+              <p class="mt"><a href="https://github.com/mcdonnelldean" class="link-has-icon icon icon-github">Github</a></p>
+            </div>        
+            <div class="col-xs-12 col-sm-4 col-md-4">
+              <p class="mt"><a href="https://twitter.com/mcdonnelldean" class="link-has-icon icon icon-twitter">Twitter</a></p>
+            </div>
+          </div>
+          <!-- row -->
+        </div>
+      </div>
+      <!-- footer top -->
+      <div class="footer-bottom">
+        <div class="container-fluid txt-center">
+          <p class="mb0">© <a href="https://github.com/mcdonneldean">Dean McDonnell</a> 2015 - 2017. Powered by <a href="http://metalsmith.io">MetalSmith</a>, hosted by <a href="http://surge.sh">Surge</a>. All Rights Reserved</p>
+        </div>
+      </div>
+      <!-- footer bottom -->
+    </footer>
+    
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>

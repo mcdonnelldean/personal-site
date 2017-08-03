@@ -1,0 +1,21 @@
+
+//-- style.scss, Senecajs.org main stylesheet
+
+@import "./base";
+@import "./type";
+@import "./lists";
+@import "./logos";
+@import "./navigation";
+@import "./forms";
+@import "./footer";
+@import "./icons";
+@import "./margins";
+@import "./header";
+@import "./code";
+@import "./panels";
+@import "./layout";
+
+
+// External libraries
+@import "libs/flexboxgrid";
+@import "libs/normalize";
