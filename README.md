@@ -1,19 +1,26 @@
-# My Personal Site
-The code in this repo is for my personal site located at [mcdonnelldean.me](http://mcdonnelldean.me). The site is built using
-[React](http://facebook.github.io/react/) and hosted on [Surge](https://surge.sh/).
+# personal-site
+[![Build Status][travis-badge]][travis-url]
 
-## Running
-The site can be ran locally using the following steps:
+This repo contains the my personal site, available at [https://mcdonnelldean.me]().
 
-- Download the repo and navigate to the root folder
-- Run `npm install`
-- Run `npm start dev`
+## Run Locally
+After cloning, you will need to get dependencies via npm,
 
-The development server is 'hot' and will reload on any changes. The lib folder is bundled by webpack, in order
-to update the bundle you will need to run `webpack --watch` in a separate window.
+```
+npm install
+```
+
+next simply run,
+
+```
+npm run docs
+```
+
+to build and serve to locally at [http://localhost:4000]()
 
 ## License
 
-Copyright Dean McDonnell 2015, Licensed under [MIT][].
+Copyright (c) 2015 - 2017 Dean McDonnell. All rights reserved
 
-[MIT]: ./LICENSE
+[travis-badge]: https://travis-ci.org/mcdonnelldean/personal-site.svg?branch=master
+[travis-url]: https://travis-ci.org/mcdonnelldean/personal-site.svg?branch=master
