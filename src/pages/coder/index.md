@@ -2,7 +2,7 @@
 layout: content.html
 ---
 
-# Software
+# Home / Coder
 I like to use as many languages as reasonably possible. Below are some things I have written about projects or processes for a given language.
 
 ## Node.JS

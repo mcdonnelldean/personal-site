@@ -6,7 +6,7 @@
   "scripts": {
     "build": "metalsmith",
     "start": "metalsmith; metalsmith-start -p 4000",
-    "deploy": "surge --project ./dist/ --domain https://mcdonnelldean.me"
+    "deploy": "surge --project ./dist/ --domain http://mcdonnelldean.me"
   },
   "dependencies": {
     "handlebars": "^4.0.5",
