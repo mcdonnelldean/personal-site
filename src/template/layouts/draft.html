@@ -3,29 +3,36 @@
   <head>
     {{> head}}
   </head>
-  <body>
+  <body class="unfinished">
     {{> menu}}
     {{> banner-small}}
 
-    <div class="container-fluid">
+    <main class="container-fluid" role="main">
       <div class="row center-xs">
-        <div class="col-xs-12 txt-left">
-          {{title}}
+        <div class="col-xs-12 col-md-12 col-lg-12">
+          <h1>Magic is happening...</h1>
+          <h3>...but it's not quite ready</h3>
         </div>
       </div>
       
       <div class="row center-xs">
-        <div class="col-xs-10 txt-left">
+        <div class="col-xs-12 col-md-9 col-lg-9">
+          <p>Seems this content is in <b>draft</b>. Once ready, this message will be removed.</p>
+        </div>
+      </div>
+      
+      <div class="row center-xs">
+        <div class="col-xs-12 col-md-10 col-lg-10 txt-left">
           {{{contents}}}
         </div>
       </div>
-
+      
       <div class="row center-xs">
         <div class="col-xs-12 col-md-8 col-lg-8">
           <p class="txt-lead mb mt2x">Issues? report them <a href="https://github.com/mcdonnelldean/personal-site/issues">here.</a></p>
         </div>
       </div>
-    </div>
+    </main>
 
     {{> footer}}
   </body>

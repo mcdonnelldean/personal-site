@@ -1,5 +1,5 @@
 ---
-layout: content.html
+layout: draft.html
 ---
 
 # Using Node.js, sudo free, with NVM
