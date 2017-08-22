@@ -2,7 +2,8 @@
 layout: content.html
 ---
 
-# [Projects][projects] / Portable RGB Lantern
+‣ [Maker][] ‣ [Projects][]
+# Portable RGB Lantern
 RGB Lanterns are fantastic project for novices and experts alike. Having a good lantern can be a great way to learn to code better. What you see as playing around with light programs and settings is real 'in the code' experience which will improve your overall skillset. 
 
 My take on on this classic was to make something that could work on a really small battery and be pleasing to the eye as a piece of art.

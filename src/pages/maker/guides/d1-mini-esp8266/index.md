@@ -1,5 +1,5 @@
 ---
-layout: content.html
+layout: draft.html
 ---
 
 # D1 Mini - ESP8266EX
