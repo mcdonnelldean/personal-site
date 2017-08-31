@@ -15,6 +15,7 @@ A collection of maker projects I have completed. These are not so much guides as
 - [Neo IR][] - IR powered pixels, using and ATTINY85 and I2C
 - [Party box][] - When the boss is away the office will play, literally a party in my office
 - [Portable RGB lantern][] - A simple LED lantern using Ikea parts
+- [Shed LEDs][] - LEDS... In a shed...
 
 Go to [Projects][]
 
@@ -51,5 +52,4 @@ Not so much microcontroller as a teeny tiny computer.
 [neo ir]: ./projects/neo-ir
 [party box]: ./projects/party-box
 [portable RGB lantern]: ./projects/portable-rgb-lantern
-
-
+[shed leds]: ./projects/shed-leds

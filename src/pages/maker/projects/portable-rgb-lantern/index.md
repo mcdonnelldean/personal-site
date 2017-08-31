@@ -1,5 +1,5 @@
 ---
-layout: content.html
+layout: draft.html
 ---
 
 ‣ [Maker][] ‣ [Projects][]
